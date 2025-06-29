@@ -62,6 +62,15 @@ app.get("/api/leads/:campaignId", async (req, res) => {
   }
 });
 
+app.delete('/api/leads/delete/:id', async (req, res) => {
+  try {
+    const result = await Lead.findByIdAndDelete(req.params.id);
+    if (!result) return res.status(404).json({ error: "Lead not found" });
+    res.json({ message: "Lead deleted" });
+  } catch (err) {
+    res.status(500).json({ error: "Server error" });
+  }
+});
 
 
 // ✅ Server start
