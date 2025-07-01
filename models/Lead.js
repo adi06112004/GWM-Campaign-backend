@@ -5,6 +5,7 @@ const leadSchema = new mongoose.Schema({
   mobile: { type: String, required: true },
   upi: { type: String, required: true },
   campaignId: { type: String, required: true },
+  rewarded: { type: Boolean, default: false },
   redirectUrl: { type: String, default: "https://your-affiliate-link.com" },
 }, { timestamps: true });
 
